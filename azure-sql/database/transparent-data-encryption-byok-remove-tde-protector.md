@@ -149,12 +149,14 @@ For command reference, see the [Azure CLI keyvault](/cli/azure/keyvault/key).
    ```azurecli
    az sql server tde-key show --resource-group <SQLDatabaseResourceGroupName> --server <LogicalServerName>
    ```
+   Note: For SQL MI we need to provide - -InstanceName instead of ServerName
 
 1. Take a backup of the new key in Key Vault.
 
    ```azurecli
    # --file parameter is optional; if removed, a file name is automatically generated.
    az keyvault key backup --file <DesiredBackupFilePath> --name <KeyVaultKeyName> --vault-name <KeyVaultName>
+  Note: For SQL MI we need to provide - -InstanceName instead of ServerName
    ```
 
 1. Delete the compromised key from Key Vault.
